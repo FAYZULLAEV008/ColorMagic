@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rang Kombinatsiyalari | Color Playground</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-palette"></i>
+                <span>ColorMagic</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Bosh Sahifa</a></li>
+                <li><a href="#generator">Generator</a></li>
+                <li><a href="#palettes">Palette'lar</a></li>
+                <li><a href="#tools">Vositalar</a></li>
+                <li><a href="#community">Jamoa</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Ranglar Olamiga <span class="gradient-text">Xush Kelibsiz</span></h1>
+                <p>Noyob rang kombinatsiyalarini yarating, toping va baham ko'ring. Dizayningiz uchun mukammal palette'ni toping.</p>
+                <div class="hero-buttons">
+                    <a href="#generator" class="btn primary-btn">Yaratishni Boshlash</a>
+                    <a href="#palettes" class="btn secondary-btn">Trenddagi Palette'lar</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="color-wheel" id="colorWheel"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Color Generator Section -->
+    <section class="section generator-section" id="generator">
+        <div class="container">
+            <h2 class="section-title">Rang Kombinatsiyasi Generatori</h2>
+            <p class="section-subtitle">5 tagacha rang qo'shing va ularning uyg'unligini ko'ring</p>
+            
+            <div class="generator-container">
+                <!-- Color Inputs -->
+                <div class="color-inputs">
+                    <div class="color-input-group">
+                        <div class="color-preview" id="colorPreview1" style="background-color: #3498db;"></div>
+                        <input type="color" id="colorPicker1" value="#3498db" class="color-picker">
+                        <input type="text" id="colorHex1" value="#3498db" class="color-hex" maxlength="7">
+                        <button class="color-btn random-btn" data-color="1"><i class="fas fa-dice"></i></button>
+                    </div>
+                    
+                    <div class="color-input-group">
+                        <div class="color-preview" id="colorPreview2" style="background-color: #2ecc71;"></div>
+                        <input type="color" id="colorPicker2" value="#2ecc71" class="color-picker">
+                        <input type="text" id="colorHex2" value="#2ecc71" class="color-hex" maxlength="7">
+                        <button class="color-btn random-btn" data-color="2"><i class="fas fa-dice"></i></button>
+                    </div>
+                    
+                    <div class="color-input-group">
+                        <div class="color-preview" id="colorPreview3" style="background-color: #e74c3c;"></div>
+                        <input type="color" id="colorPicker3" value="#e74c3c" class="color-picker">
+                        <input type="text" id="colorHex3" value="#e74c3c" class="color-hex" maxlength="7">
+                        <button class="color-btn random-btn" data-color="3"><i class="fas fa-dice"></i></button>
+                    </div>
+                    
+                    <div class="color-input-group">
+                        <div class="color-preview" id="colorPreview4" style="background-color: #f1c40f;"></div>
+                        <input type="color" id="colorPicker4" value="#f1c40f" class="color-picker">
+                        <input type="text" id="colorHex4" value="#f1c40f" class="color-hex" maxlength="7">
+                        <button class="color-btn random-btn" data-color="4"><i class="fas fa-dice"></i></button>
+                    </div>
+                    
+                    <div class="color-input-group">
+                        <div class="color-preview" id="colorPreview5" style="background-color: #9b59b6;"></div>
+                        <input type="color" id="colorPicker5" value="#9b59b6" class="color-picker">
+                        <input type="text" id="colorHex5" value="#9b59b6" class="color-hex" maxlength="7">
+                        <button class="color-btn random-btn" data-color="5"><i class="fas fa-dice"></i></button>
+                    </div>
+                </div>
+                
+                <!-- Controls -->
+                <div class="generator-controls">
+                    <button id="randomPalette" class="btn control-btn">
+                        <i class="fas fa-random"></i> Tasodifiy Palette
+                    </button>
+                    <button id="addColor" class="btn control-btn">
+                        <i class="fas fa-plus"></i> Rang Qo'shish
+                    </button>
+                    <button id="removeColor" class="btn control-btn">
+                        <i class="fas fa-minus"></i> Rang Olib Tashlash
+                    </button>
+                    <button id="savePalette" class="btn control-btn">
+                        <i class="fas fa-save"></i> Saqlash
+                    </button>
+                </div>
+                
+                <!-- Preview -->
+                <div class="palette-preview">
+                    <h3>Palette Ko'rinishi</h3>
+                    <div class="preview-area">
+                        <div class="website-preview">
+                            <div class="preview-header" id="previewHeader">
+                                <div class="preview-logo">Logo</div>
+                                <div class="preview-nav">
+                                    <span>Bosh Sahifa</span>
+                                    <span>Haqida</span>
+                                    <span>Xizmatlar</span>
+                                    <span>Aloqa</span>
+                                </div>
+                            </div>
+                            <div class="preview-hero" id="previewHero">
+                                <h2>Sayt Sarlavhasi</h2>
+                                <p>Bu yerda sayt matni bo'ladi. Siz tanlagan ranglar bu elementlarning rangini o'zgartirish uchun ishlatiladi.</p>
+                                <button class="preview-btn">Ko'proq</button>
+                            </div>
+                            <div class="preview-cards">
+                                <div class="preview-card" id="previewCard1">
+                                    <h3>Karta 1</h3>
+                                    <p>Karta matni</p>
+                                </div>
+                                <div class="preview-card" id="previewCard2">
+                                    <h3>Karta 2</h3>
+                                    <p>Karta matni</p>
+                                </div>
+                                <div class="preview-card" id="previewCard3">
+                                    <h3>Karta 3</h3>
+                                    <p>Karta matni</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="palette-display">
+                            <div class="palette-colors" id="paletteColors">
+                                <!-- Colors will be displayed here -->
+                            </div>
+                            <div class="color-info">
+                                <p><strong>Ranglar soni:</strong> <span id="colorCount">5</span></p>
+                                <p><strong>Kontrast:</strong> <span id="contrastScore">Yaxshi</span></p>
+                                <button id="copyPalette" class="btn small-btn">
+                                    <i class="fas fa-copy"></i> Kodni Nusxalash
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Export Options -->
+                <div class="export-options">
+                    <h3>Eksport Qilish</h3>
+                    <div class="export-buttons">
+                        <button id="exportCSS" class="btn export-btn">
+                            <i class="fab fa-css3-alt"></i> CSS O'zgaruvchilari
+                        </button>
+                        <button id="exportSCSS" class="btn export-btn">
+                            <i class="fab fa-sass"></i> SCSS O'zgaruvchilari
+                        </button>
+                        <button id="exportJSON" class="btn export-btn">
+                            <i class="fas fa-code"></i> JSON Format
+                        </button>
+                    </div>
+                    <div class="export-output" id="exportOutput">
+                        <!-- Exported code will appear here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Color Palettes Gallery -->
+    <section class="section palettes-section" id="palettes">
+        <div class="container">
+            <h2 class="section-title">Mashhur Rang Palette'lari</h2>
+            <p class="section-subtitle">Dizayn uchun tayyor kombinatsiyalar</p>
+            
+            <div class="palettes-filter">
+                <button class="filter-btn active" data-filter="all">Hammasi</button>
+                <button class="filter-btn" data-filter="modern">Modern</button>
+                <button class="filter-btn" data-filter="vintage">Vintage</button>
+                <button class="filter-btn" data-filter="minimal">Minimal</button>
+                <button class="filter-btn" data-filter="bright">Yorqin</button>
+                <button class="filter-btn" data-filter="pastel">Pastel</button>
+            </div>
+            
+            <div class="palettes-grid" id="palettesGrid">
+                <!-- Palettes will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Color Tools -->
+    <section class="section tools-section" id="tools">
+        <div class="container">
+            <h2 class="section-title">Rang Vositalari</h2>
+            <p class="section-subtitle">Foydali vositalar yordamida ranglarni tahli qiling</p>
+            
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-eye-dropper"></i>
+                    </div>
+                    <h3>Rang Tanlovchi</h3>
+                    <p>Veb-sahifadan yoki rasmdan ranglarni tanlang</p>
+                    <button class="btn tool-btn" id="colorPickerTool">Ochiq</button>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-universal-access"></i>
+                    </div>
+                    <h3>Kontrast Tekshiruvi</h3>
+                    <p>WCAG standartlariga muvofiqligini tekshiring</p>
+                    <button class="btn tool-btn" id="contrastChecker">Ochiq</button>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-gradient"></i>
+                    </div>
+                    <h3>Gradient Yaratish</h3>
+                    <p>Chiroyli gradientlarni yarating va eksport qiling</p>
+                    <button class="btn tool-btn" id="gradientGenerator">Ochiq</button>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-image"></i>
+                    </div>
+                    <h3>Rasm Palette'si</h3>
+                    <p>Rasm yuklang va undan rang palette'sini oling</p>
+                    <input type="file" id="imageUpload" accept="image/*" hidden>
+                    <button class="btn tool-btn" id="imageExtractor">Rasm Yuklash</button>
+                </div>
+            </div>
+            
+            <!-- Contrast Checker Modal -->
+            <div class="modal" id="contrastModal">
+                <div class="modal-content">
+                    <span class="close-modal">&times;</span>
+                    <h3>Kontrast Tekshiruvi</h3>
+                    <div class="contrast-checker">
+                        <div class="contrast-inputs">
+                            <div class="contrast-color">
+                                <label>Matn Rangi</label>
+                                <input type="color" id="textColor" value="#000000">
+                                <input type="text" id="textColorHex" value="#000000">
+                            </div>
+                            <div class="contrast-color">
+                                <label>Fon Rangi</label>
+                                <input type="color" id="bgColor" value="#ffffff">
+                                <input type="text" id="bgColorHex" value="#ffffff">
+                            </div>
+                        </div>
+                        <div class="contrast-result">
+                            <div class="contrast-preview" id="contrastPreview">
+                                Bu matn kontrastni ko'rsatadi
+                            </div>
+                            <div class="contrast-scores">
+                                <div class="score-card">
+                                    <h4>Kontrast Nisbati</h4>
+                                    <p class="score" id="contrastRatio">21:1</p>
+                                </div>
+                                <div class="score-card">
+                                    <h4>WCAG AA</h4>
+                                    <p class="score" id="wcagAA">✅ O'tdi</p>
+                                </div>
+                                <div class="score-card">
+                                    <h4>WCAG AAA</h4>
+                                    <p class="score" id="wcagAAA">✅ O'tdi</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section class="section community-section" id="community">
+        <div class="container">
+            <h2 class="section-title">Jamoatchilik Palette'lari</h2>
+            <p class="section-subtitle">Boshqa foydalanuvchilar tomonidan yaratilgan rang kombinatsiyalari</p>
+            
+            <div class="community-palettes" id="communityPalettes">
+                <!-- Community palettes will be loaded here -->
+            </div>
+            
+            <div class="community-form">
+                <h3>O'z Palette'ingizni Ulashing</h3>
+                <div class="form-group">
+                    <input type="text" id="paletteName" placeholder="Palette nomi">
+                    <input type="text" id="creatorName" placeholder="Ismingiz">
+                </div>
+                <div class="form-group">
+                    <textarea id="paletteDescription" placeholder="Palette haqida tavsif..."></textarea>
+                </div>
+                <button id="sharePalette" class="btn primary-btn">Jamoatchilik bilan Ulashish</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-palette"></i>
+                    <span>ColorMagic</span>
+                </div>
+                <p>Ranglar olami - yaratuvchilar uchun vosita. Barcha huquqlar himoyalangan.</p>
+                <div class="footer-links">
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-dribbble"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 ColorMagic. Barcha huquqlar himoyalangan. | <a href="#">Maxfiylik siyosati</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <span id="toastMessage">Xabar bu yerda ko'rinadi</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
